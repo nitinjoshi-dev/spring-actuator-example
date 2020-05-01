@@ -1,4 +1,4 @@
-package com.sample.spring.actuator.info;
+package com.sample.spring.actuator.custom.info;
 
 import java.util.HashMap;
 import java.util.Map;
