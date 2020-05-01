@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sample.spring.actuator.dto.PizzaDTO;
 import com.sample.spring.actuator.service.intf.PizzaService;
 
-@RestController
+@RestController("test")
 @RequestMapping("/api")
 public class TestResource {
 
