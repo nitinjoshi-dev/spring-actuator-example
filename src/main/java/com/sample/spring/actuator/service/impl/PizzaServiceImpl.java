@@ -13,17 +13,17 @@ public class PizzaServiceImpl implements PizzaService {
 
 	@Override
 	public List<PizzaDTO> getAllPizzas(Integer size) {
-		if(size == null) {
+		if (size == null) {
 			size = 10;
 		}
-		
+
 		boolean alwaysVeg = true;
-		
+
 		List<PizzaDTO> pizzaDTOs = new ArrayList<PizzaDTO>();
-		for(int i = 0; i < size ; i++) {
+		for (int i = 0; i < size; i++) {
 			PizzaDTO pizzaDTO = new PizzaDTO();
 			pizzaDTO.setId(Long.valueOf(i));
-			pizzaDTO.setCost(100.0 * (i+1));
+			pizzaDTO.setCost(100.0 * (i + 1));
 			pizzaDTO.setName("Pizza name " + i);
 			pizzaDTO.setIsVeg(alwaysVeg);
 			pizzaDTOs.add(pizzaDTO);

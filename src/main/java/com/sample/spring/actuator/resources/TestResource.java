@@ -16,19 +16,18 @@ import com.sample.spring.actuator.service.intf.PizzaService;
 @RestController
 @RequestMapping("/api")
 public class TestResource {
-	
+
 	@Autowired
 	private PizzaService pizzaService;
 
-
 	@GetMapping(path = "/pizzas")
-	public ResponseEntity<List<PizzaDTO>> getAllPizza(@RequestParam(name="size", required = false) Integer size) {
+	public ResponseEntity<List<PizzaDTO>> getAllPizza(@RequestParam(name = "size", required = false) Integer size) {
 		List<PizzaDTO> pizzaDTOs = pizzaService.getAllPizzas(size);
 		return new ResponseEntity<List<PizzaDTO>>(pizzaDTOs, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping("/test")
-	public ResponseEntity<Void> test() {		
+	public ResponseEntity<Void> test() {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
