@@ -27,9 +27,9 @@ public class TestResource {
 		return new ResponseEntity<List<PizzaDTO>>(pizzaDTOs, HttpStatus.OK);
 	}
 	
-	@RequestMapping("/")
-	public String test() {		
-		return "Some thing some";
+	@RequestMapping("/test")
+	public ResponseEntity<Void> test() {		
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 }
