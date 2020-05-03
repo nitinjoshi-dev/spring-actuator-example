@@ -3,16 +3,26 @@ package com.sample.spring.actuator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sample.spring.actuator.custom.dto.MetricHolder;
+import com.sample.spring.actuator.custom.dto.Metrics;
 import com.sample.spring.actuator.dto.PizzaDTO;
 import com.sample.spring.actuator.service.intf.PizzaService;
 
+import io.micrometer.core.instrument.MeterRegistry;
+
 @Service
 public class PizzaServiceImpl implements PizzaService {
+	
+	@Autowired
+	private MeterRegistry meterRegistry;
 
 	@Override
 	public List<PizzaDTO> getAllPizzas(Integer size) {
+		Metrics pizzaMetrics = MetricHolder.getInstance(meterRegistry).getPizzaMetrics();
+		pizzaMetrics.onEnter();
 		if (size == null) {
 			size = 10;
 		}
@@ -28,6 +38,7 @@ public class PizzaServiceImpl implements PizzaService {
 			pizzaDTO.setIsVeg(alwaysVeg);
 			pizzaDTOs.add(pizzaDTO);
 		}
+		pizzaMetrics.onExit(true);
 		return pizzaDTOs;
 	}
 

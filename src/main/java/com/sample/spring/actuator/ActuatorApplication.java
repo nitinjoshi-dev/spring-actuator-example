@@ -20,6 +20,7 @@ public class ActuatorApplication {
 		SpringApplication.run(ActuatorApplication.class, args);
 	}
 	
+	//Used to configure spring percentiles expiry time
 	@Bean
 	public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
 	    return registry -> registry.config()

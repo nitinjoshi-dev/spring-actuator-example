@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
  */
 @WebEndpoint(id = "jhimetrics")
 @Component
+//Custom endpoints using metric registry into our own format 
 public class JHipsterMetricsEndpoint {
 
     private final MeterRegistry meterRegistry;
